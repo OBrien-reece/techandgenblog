@@ -14,9 +14,9 @@ class WriterRequest extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($writer)
     {
-        //
+        $this->writer = $writer;
     }
 
     /**
@@ -26,7 +26,7 @@ class WriterRequest extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -48,7 +48,8 @@ class WriterRequest extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'name' => $this->writer->name,
+            'about' => $this->writer->about,
         ];
     }
 }
