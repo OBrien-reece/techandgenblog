@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', config('app.name') . " | " . "Tech and general news")
+<x-webpage.title title="Tech and general news"/>
 
 @section('content')
 
