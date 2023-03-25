@@ -23,6 +23,7 @@ Route::group(['middleware' => 'can:admin', 'prefix' => 'admin', 'as' => 'admin.'
    Route::get('dashboard', [AdminController::class, 'index'])->name('index');
    Route::get('users', [AdminController::class, 'show'])->name('show');
    Route::get('messages', [NotificationController::class, 'index'])->name('messages');
+   Route::get('notification/{notification}', [NotificationController::class, 'delete'])->name('notification.delete');
 });
 
 Route::get('/writer/{writer:name}/request', [WriterRequestController::class, 'writer_request']);

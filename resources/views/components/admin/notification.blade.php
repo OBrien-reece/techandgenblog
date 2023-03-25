@@ -11,6 +11,6 @@
 </a>
 <span style="float: right;padding-right: 70px">
     <i style="color: green" class="fas fa-circle-check"></i>
-    <i style="color: red" class="fa fa-circle-xmark"></i>
+    <a href="notification/{{ $notification->id }}"><i style="color: red" class="fa fa-circle-xmark"></i></a>
 </span>
 <hr>
