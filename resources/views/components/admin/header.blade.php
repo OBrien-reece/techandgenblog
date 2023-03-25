@@ -77,6 +77,24 @@
             background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
             color: #fff;
         }
+        .circle {
+            display: inline-block;
+            background-color: purple;
+            margin: 6px;
+            border-radius: 50%;
+        }
+
+        .circle-inner {
+            color: white;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            text-decoration: none;
+            height: 40px;
+            width: 40px;
+            font-size: 17px;
+        }
+
     </style>
 </head>
 

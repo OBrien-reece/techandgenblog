@@ -7,7 +7,7 @@
         <i class='bx bx-user nav_icon'></i>
         <span class="nav_name">Users</span>
     </a>
-    <a href="#" class="nav_link">
+    <a href="{{ route('admin.messages') }}" class="nav_link {{ request()->is('admin/messages') ? 'active' : '' }}">
         <i class='bx bx-message-square-detail nav_icon'></i>
         <span class="nav_name">Messages</span>
     </a>
