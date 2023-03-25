@@ -7,16 +7,16 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class WriterRequest extends Notification
+class RevokeWriterRequest extends Notification
 {
     use Queueable;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($writer)
+    public function __construct()
     {
-        $this->writer = $writer;
+        //
     }
 
     /**
@@ -48,7 +48,7 @@ class WriterRequest extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            'name' => $this->writer->name,
+            'message' => "Your request to be a writer was rejected. Alias with customer support for assistance"
         ];
     }
 }

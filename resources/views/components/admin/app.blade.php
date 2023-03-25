@@ -35,4 +35,18 @@
     </div>
     <!--Container Main end-->
 
+    @if(Session::has('message'))
+        <script>
+            toastr.options = {
+                'progressBar' : true,
+                "showMethod": "fadeIn",
+                "positionClass": "toast-bottom-right",
+                "hideMethod": "fadeOut",
+                "closeButton": true,
+                "newestOnTop": false,
+            }
+            toastr.success("{{ Session::get('message') }}");
+        </script>
+    @endif
+
 <x-admin.footer />

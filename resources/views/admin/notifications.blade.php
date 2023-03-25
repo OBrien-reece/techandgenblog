@@ -12,24 +12,12 @@
                     <div class="card-body">
 
                         @can('admin')
-                            @foreach($notifications as $notification)
-                                <a href="" style="color: purple">
-                                    <div class="circle">
-                                        <p class="circle-inner">{{ $initials = preg_filter('/[^A-Z]/', '', $notification->data['name']) }}</p>
-                                    </div>
-                                        <span style="font-family: 'Times New Roman'">{{ $notification->data['name'] }} is requesting writer priviledges</span>
-                                        <small style="font-size: 12px;float: right"> [{{ ($notification->created_at)->diffForHumans() }}]</small>
-                                    </a>
-                                <hr>
-                            @endforeach
+                            @forelse($notifications as $notification)
+                                <x-admin.notification :notification="$notification" />
+                            @empty
+                                <p>No notifications have been registered</p>
+                            @endforelse
                         @endcan
-
-                        {{--@foreach($users as $user)
-                            <div class="circle">
-                                <p class="circle-inner">{{ $initials = preg_filter('/[^A-Z]/', '', $user->name) }}</p>
-                            </div>
-                            <hr>
-                        @endforeach--}}
                     </div>
                 </div>
             </div>
