@@ -9,7 +9,7 @@
         [{{ ($notification->created_at)->diffForHumans() }}]
     </small>
 </a>
-<span style="float: right;padding-right: 70px">
+<span style="float: right;padding-right: 50px">
     <i style="color: green" class="fas fa-circle-check"></i>
     <a href="notification/{{ $notification->id }}"><i style="color: red" class="fa fa-circle-xmark"></i></a>
 </span>
