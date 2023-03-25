@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'can:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
    Route::get('dashboard', [AdminController::class, 'index'])->name('index');
+   Route::get('users', [AdminController::class, 'show'])->name('show');
 });
 
 Route::get('/writer/{writer:name}/request', [WriterRequestController::class, 'writer_request']);

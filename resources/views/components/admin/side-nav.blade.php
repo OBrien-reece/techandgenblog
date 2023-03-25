@@ -1,9 +1,9 @@
 <div class="nav_list">
-    <a href="{{ route('admin.index') }}" class="nav_link active">
+    <a href="{{ route('admin.index') }}" class="nav_link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
         <i class='bx bx-grid-alt nav_icon'></i>
         <span class="nav_name">Dashboard</span>
     </a>
-    <a href="#" class="nav_link">
+    <a href="{{ route('admin.show') }}" class="nav_link {{ request()->is('admin/users') ? 'active' : '' }}">
         <i class='bx bx-user nav_icon'></i>
         <span class="nav_name">Users</span>
     </a>

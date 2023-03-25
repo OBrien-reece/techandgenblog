@@ -32,4 +32,11 @@ class AdminController extends Controller
             'admin_growth' => $admin_growth
         ]);
     }
+
+    public function show() {
+        $admin = User::loggedinadmin()->first();
+        return view('admin.show', [
+            'admin' => $admin
+        ]);
+    }
 }
