@@ -12,9 +12,11 @@
                     <div class="card-body">
 
                         @can('admin')
-                            @foreach($notifications as $notification)
+                            @forelse($notifications as $notification)
                                 <x-admin.notification :notification="$notification" />
-                            @endforeach
+                            @empty
+                                <p>No notifications have been registered</p>
+                            @endforelse
                         @endcan
                     </div>
                 </div>
