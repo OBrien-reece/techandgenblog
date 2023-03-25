@@ -11,7 +11,7 @@ class WriterRequestController extends Controller
 {
     public function writer_request(User $writer) {
 
-        $admin = User::where('email', 'obrien@techandgeneral.com')->orWhere('email', 'winston@techandgeneral.com')->first();
+        $admin = User::admins()->get();
         Notification::send($admin, new WriterRequest($writer));
 
         return back()->with('message', 'Your request has been submitted');

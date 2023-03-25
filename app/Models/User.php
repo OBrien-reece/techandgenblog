@@ -48,4 +48,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Articles::class);
     }
+
+    /*Query scope to get the admins of the site*/
+    public function scopeAdmins($query) {
+        return $query->where('email', 'obrien@techandgeneral.com')->orWhere('email', 'winston@techandgeneral.com');
+    }
+
+    public function scopeLoggedinadmin($query) {
+        return $query->where('id', Auth()->user()->id)->where('email', 'obrien@techandgeneral.com')->orWhere('email', 'winston@techandgeneral.com');
+    }
 }

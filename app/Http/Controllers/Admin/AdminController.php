@@ -15,10 +15,11 @@ class AdminController extends Controller
         $user_growth = $user_counter / 2;
         $article_counter = Articles::count();
         $article_growth = $article_counter /2 ;
-        $admin_counter = User::where('email', 'obrien@techandgeneral.com')->orWhere('email', 'winston@techandgeneral.com')->count();
+        $admin_counter = User::admins()->count();
         $admin_growth = $admin_counter /2;
         $users = User::with(['articles'])->get();
-        $admin = User::where('email', 'obrien@techandgeneral.com')->orWhere('email', 'winston@techandgeneral.com')->first();
+
+        $admin = User::loggedinadmin()->first();
 
         return view('admin.index',[
             'admin' => $admin,
