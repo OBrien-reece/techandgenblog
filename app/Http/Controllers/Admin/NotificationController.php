@@ -22,7 +22,6 @@ class NotificationController extends Controller
 
         if ($id) {
             $notification = \DB::table('notifications')->where('id', $id)->get();
-            dd($notification);
 //            auth()->user()->notifications->where('id', $id)->delete();
 //            dd('yes');
         }
