@@ -34,6 +34,9 @@ class NotificationController extends Controller
                 //Find the user's data through the User model
                 $user = User::where('name', $name_of_user)->first();
 
+                //Give the user a revoked_writer role
+                $user->assignRole('revoked_writer');
+
                 //Send the user a notification message
                 Notification::send($user, new RevokeWriterRequest());
 
