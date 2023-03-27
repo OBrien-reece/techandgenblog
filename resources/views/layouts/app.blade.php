@@ -57,9 +57,15 @@
                             @endif
                         @else
 
-                            <li class="nav-item">
-                                <small><a class="nav-link" href="/writer/{{ Auth()->user()->name }}/request">{{ __('Become a writer') }}</a></small>
-                            </li>
+                        @unlessrole('revoked_writer|admin')
+                        <li class="nav-item">
+                            <small>
+                                <a class="nav-link" href="/writer/{{ Auth()->user()->name }}/request">{{ __('Become a writer') }}</a>
+                            </small>
+                        </li>
+                        @else
+                        @endunlessrole
+
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -68,11 +74,11 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                    @can('admin')
+                                    @role('admin')
                                         <a class="dropdown-item" href="{{ route('admin.index') }}">
                                            Dashboard
                                         </a>
-                                    @endcan
+                                    @endrole
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
