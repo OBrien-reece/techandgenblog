@@ -28,6 +28,6 @@ Route::get('/writer/{writer:name}/request', [WriterRequestController::class, 'wr
 Auth::routes();
 
 Route::group(['middleware' => 'auth', 'as' => 'articles.'], function () {
-    Route::get('/home', [ArticlesController::class, 'index'])->name('home');
+    Route::get('/home', [ArticlesController::class, 'index'])->name('index');
     Route::get('/', [ArticlesController::class, 'index']);
 });

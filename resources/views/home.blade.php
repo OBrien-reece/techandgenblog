@@ -27,7 +27,8 @@
         <div class="col-md-9 m-auto">
             <div class="row">
                 <div class="col-md-7">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quam.
+
+                    <span style="">{{ $articles[0]->title }}</span>
                 </div>
                 <div class="col-md-4">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, ipsa?ddddddddd

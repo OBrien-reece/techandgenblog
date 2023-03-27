@@ -15,7 +15,7 @@ class ArticlesFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->text(maxNbChars:100),
             'excerpt' => $this->faker->paragraph(),
             'body' => collect($this->faker->paragraphs(4))->map(fn($item) => "<p>{$item}</p>")->implode(''),
             'category_id' => Category::factory()->create(),
