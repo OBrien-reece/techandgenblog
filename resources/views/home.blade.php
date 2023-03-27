@@ -24,6 +24,16 @@
             </div>
         </div>
     </div>
+        <div class="col-md-9 m-auto">
+            <div class="row">
+                <div class="col-md-7">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quam.
+                </div>
+                <div class="col-md-4">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, ipsa?ddddddddd
+                </div>
+            </div>
+    </div>
 </div>
 
 @endsection

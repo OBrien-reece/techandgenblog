@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\{AdminController, NotificationController};
+use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\WriterRequestController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware' => 'can:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
    Route::get('dashboard', [AdminController::class, 'index'])->name('index');
    Route::get('users', [AdminController::class, 'show'])->name('show');
@@ -30,4 +27,7 @@ Route::get('/writer/{writer:name}/request', [WriterRequestController::class, 'wr
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth', 'as' => 'articles.'], function () {
+    Route::get('/home', [ArticlesController::class, 'index'])->name('home');
+    Route::get('/', [ArticlesController::class, 'index']);
+});
