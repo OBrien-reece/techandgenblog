@@ -11,6 +11,7 @@ class ArticlesController extends Controller
     public function index() {
 
         $categories = Category::with(['articles'])->latest()->get()->take(4);
+        $articles = Articles::with(['author', 'category'])->orderByDesc('created_at')->get();
 
         foreach ($categories as $category) {
             $category->latestArticle = $category->articles()->latest()->first();
@@ -19,6 +20,7 @@ class ArticlesController extends Controller
         return view('home', [
             'categories' => $categories,
             'featured_article' =>  $featured_article,
+            'articles' => $articles
         ]);
     }
 }

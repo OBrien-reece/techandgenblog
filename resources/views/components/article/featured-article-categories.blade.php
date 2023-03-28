@@ -4,9 +4,9 @@
     @if(!empty($categories))
         @foreach($categories as $category)
             <a href="#" style="text-decoration: none">
-                                <span style="color: green">
-                                <strong>{{ ucwords($category->name) }}</strong>
-                            </span>
+            <span style="color: green">
+                <strong>{{ ucwords($category->name) }}</strong>
+            </span>
             </a>
             <br>
             <span style="font-family: 'Poppins', sans-serif; font-size:1vw;" class="blog_title">
