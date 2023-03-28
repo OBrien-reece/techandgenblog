@@ -28,15 +28,6 @@
             <div class="row">
                 <div class="col-md-8">
 
-{{--                    @if(!empty($categories))--}}
-{{--                        @foreach($categories as $category)--}}
-{{--                            @foreach($category->articles as $articles)--}}
-{{--                                {{ $articles->title }}--}}
-{{--                            @endforeach--}}
-{{--                        @endforeach--}}
-{{--                    @endif--}}
-
-
                 <span style="font-family: 'Poppins', sans-serif; font-size:2.3vw;" class="blog_title">
                     {{ $featured_article->title }}
                 </span>
@@ -44,7 +35,19 @@
 
                 </div>
                 <div class="col-md-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, ipsa?ddddddddd
+                    @if(!empty($categories))
+                        @foreach($categories as $category)
+                            <span style="color: green">
+                                <strong>{{ ucwords($category->name) }}</strong>
+                            </span>
+                            <br>
+                            <span style="font-family: 'Poppins', sans-serif; font-size:1vw;" class="blog_title">
+                                {{ $latestArticle->title }}<br>
+                            </span>
+                            <span style="color: gray;font-size: 1.1vw">{{ $latestArticle->author->name }}</span>
+                            <hr>
+                        @endforeach
+                    @endif
                 </div>
             </div>
     </div>

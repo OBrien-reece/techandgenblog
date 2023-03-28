@@ -10,8 +10,15 @@ class ArticlesController extends Controller
 {
     public function index() {
 
-        $categories = Category::with(['articles'])->get();
+        $categories = Category::with(['articles'])->latest()->get()->take(4);
+        foreach ($categories as $category) {
+            $latestArticle = $category->articles()->latest()->first();
+        }
         $featured_article = Articles::latest()->first();
-        return view('home', compact(['categories', 'featured_article']));
+        return view('home', [
+            'categories' => $categories,
+            'featured_article' =>  $featured_article,
+            'latestArticle' => $latestArticle,
+        ]);
     }
 }
