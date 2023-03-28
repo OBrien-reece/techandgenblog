@@ -12,7 +12,7 @@
 
         @foreach($articles as $article)
 
-            <div class="row border-bottom border-top" style="padding: 10px 0 10px 0">
+            <div class="row border-bottom border-top article" style="padding: 10px 0 10px 0">
                 <div class="col-md-4">
                     <span style="color: green">{{ $article->category->name }}</span><br>
                     <span style="font-family: 'Poppins', sans-serif; font-size:1.4vw;">{{ $article->title }}</span>

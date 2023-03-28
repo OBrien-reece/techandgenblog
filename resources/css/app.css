@@ -13,4 +13,7 @@
 .article_created_at {
     color: gray;
 }
+.article:hover {
+    background-color: floralwhite;
+}
 
