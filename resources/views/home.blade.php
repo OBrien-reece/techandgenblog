@@ -17,7 +17,7 @@
 
             </div>
 
-            <x-article.featured-article-categories :categories="$categories" :latestArticle="$latestArticle" />
+            <x-article.featured-article-categories :categories="$categories" />
 
             </div>
     </div>

@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $role = Role::create(['name' => 'revoked_writer']);
 
         $this->call([
+            UserSeeder::class,
             CategorySeeder::class,
             AdminSeeder::class,
             ArticlesSeeder::class,
