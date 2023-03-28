@@ -26,9 +26,22 @@
     </div>
         <div class="col-md-9 m-auto">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-8">
 
-                    <span style="">{{ $articles[0]->title }}</span>
+{{--                    @if(!empty($categories))--}}
+{{--                        @foreach($categories as $category)--}}
+{{--                            @foreach($category->articles as $articles)--}}
+{{--                                {{ $articles->title }}--}}
+{{--                            @endforeach--}}
+{{--                        @endforeach--}}
+{{--                    @endif--}}
+
+
+                <span style="font-family: 'Poppins', sans-serif; font-size:2.3vw;" class="blog_title">
+                    {{ $featured_article->title }}
+                </span>
+                <img src="img/card.jpg" alt="" width="100%" style="border-radius: 2px">
+
                 </div>
                 <div class="col-md-4">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, ipsa?ddddddddd

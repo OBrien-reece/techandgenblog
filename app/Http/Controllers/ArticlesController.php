@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Articles;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
     public function index() {
 
-        $articles = Articles::with(['author', 'category'])->get();
-        return view('home', compact('articles'));
+        $categories = Category::with(['articles'])->get();
+        $featured_article = Articles::latest()->first();
+        return view('home', compact(['categories', 'featured_article']));
     }
 }

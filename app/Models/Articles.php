@@ -12,6 +12,8 @@ class Articles extends Model
 
     protected $table = 'articles';
 
+    protected $with = ['author'];
+
     protected $fillable = ['title', 'excerpt', 'body', 'thumbnail_image', 'banner_image'];
 
     public function author(): BelongsTo

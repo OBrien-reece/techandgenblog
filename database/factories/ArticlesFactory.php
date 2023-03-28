@@ -14,12 +14,16 @@ class ArticlesFactory extends Factory
 
     public function definition(): array
     {
+
+        $category = collect(Category::all()->modelKeys());
+        $users = collect(User::all()->modelKeys());
+
         return [
             'title' => $this->faker->text(maxNbChars:100),
             'excerpt' => $this->faker->paragraph(),
             'body' => collect($this->faker->paragraphs(4))->map(fn($item) => "<p>{$item}</p>")->implode(''),
-            'category_id' => Category::factory()->create(),
-            'user_id' => User::factory()->create(),
+            'category_id' => $category->random(),
+            'user_id' => $users->random(),
             'slug' => $this->faker->slug()
         ];
     }
