@@ -9,18 +9,19 @@
     <x-webpage.header />
     <div class="col-md-9 m-auto">
         <div class="row">
-            <div class="col-md-8">
 
-            {{--Featured Article component--}}
+            <div class="col-md-8">
+            {{--Featured Article component Left side of the page--}}
             <x-article.featured-article :featured_article="$featured_article"/>
             </div>
 
-            {{--Featured categry latest articles--}}
+            {{--Featured categry latest articles Right Side of the bed--}}
             <x-article.featured-article-categories :categories="$categories" />
+
         </div>
     </div>
 
-    {{--Component fo the lower section of the page--}}
+    {{--Component of the lower section of the page--}}
     <x-article.article-blog-lower-section :articles="$articles" />
 
 </div>

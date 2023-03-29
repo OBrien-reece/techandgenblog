@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
-.author_name {
-    padding-top: 5px;
-}
 .author_name_link {
     text-decoration: none;
-    color: black;
+    color: gray;
 }
 .author_name_link:hover {
     color: green;
@@ -13,7 +10,18 @@
 .article_created_at {
     color: gray;
 }
-.article:hover {
-    background-color: floralwhite;
+.article {
+    opacity: 1;
+    transition: .3s ease-in-out;
 }
+
+.article:hover {
+    opacity: .7;
+}
+
+.featured_category_article {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 

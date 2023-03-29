@@ -3,10 +3,10 @@
 <div class="row">
     <div class="col-md-9 m-auto">
 
-        <div>
-                <span style="font-family: 'Poppins', sans-serif; font-size:1.4vw;">
-                    The Latest
-                </span>
+        <div class="mt-4">
+            <span style="font-family: 'Poppins', sans-serif; font-size:1.4vw;">
+                The Latest
+            </span>
         </div>
         <br>
 
@@ -16,11 +16,15 @@
                 <div class="col-md-4">
                     <span style="color: green">{{ $article->category->name }}</span><br>
                     <span style="font-family: 'Poppins', sans-serif; font-size:1.4vw;">{{ $article->title }}</span>
+
                     <br>
-                    <a href="#" class="author_name_link">
-                        <strong><span class="author_name">{{ $article->author->name }}</span></strong>
-                    </a>
+
+                    <x-article.author-name :author="$article->author">
+                            {{ $article->author->name }}
+                        </x-article.author-name>
+
                     <br>
+
                     <span class="article_created_at">{{ date('F jS Y \a\t h:i A', strtotime($article->created_at)) }}</span>
                 </div>
 

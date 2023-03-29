@@ -3,22 +3,27 @@
 <div class="col-md-4">
     @if(!empty($categories))
         @foreach($categories as $category)
-            <a href="#" style="text-decoration: none">
-            <span style="color: green">
-                <strong>{{ ucwords($category->name) }}</strong>
-            </span>
-            </a>
-            <br>
-            <span style="font-family: 'Poppins', sans-serif; font-size:1vw;" class="blog_title">
-                <a href="#" style="text-decoration: none;color: black">
-                    {{ $category->latestArticle->title }}
-                </a>
-                <br>
-            </span>
-            <a href="#" style="text-decoration: none;">
-                <span style="color: gray;font-size: 1.1vw">{{ $category->latestArticle->author->name }}</span>
-            </a>
-            <hr>
+           <div class="featured_category_article article {{ $loop->iteration < 1 ? '' : 'border-bottom' }}">
+               <a href="#" style="text-decoration: none">
+                    <span style="color: green">
+                        <strong>{{ ucwords($category->name) }}</strong>
+                    </span>
+               </a>
+
+               <br>
+
+               <span style="font-family: 'Poppins', sans-serif; font-size:1vw;" class="blog_title">
+                    <a href="#" style="text-decoration: none;color: black">
+                        {{ $category->latestArticle->title }}
+                    </a>
+                    <br>
+                </span>
+
+               <x-article.author-name :author="$category->latestArticle->author">
+                   {{ $category->latestArticle->author->name }}
+               </x-article.author-name>
+
+           </div>
         @endforeach
     @endif
 </div>
