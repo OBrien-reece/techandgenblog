@@ -1,16 +1,4 @@
-@props(['articles'])
-
-<div class="row">
-    <div class="col-md-9 m-auto">
-
-        <div class="mt-4">
-            <span style="font-family: 'Poppins', sans-serif; font-size:1.4vw;">
-                The Latest
-            </span>
-        </div>
-        <br>
-
-        @foreach($articles as $article)
+@props(['article'])
 
             <div class="row border-bottom border-top article" style="padding: 10px 0 10px 0">
                 <div class="col-md-4">
@@ -36,6 +24,3 @@
                     <img src="https://picsum.photos/seed/{{$article->id}}/270/150" alt="">
                 </div>
             </div>
-        @endforeach
-    </div>
-</div>

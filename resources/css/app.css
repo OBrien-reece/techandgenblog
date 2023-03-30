@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
+.author_picture {
+    background-size: cover;
+    border-radius:50% 50% 50% 50%;
+    width:200px;
+    height:200px;
+}
+
 .author_name_link {
     text-decoration: none;
     color: gray;

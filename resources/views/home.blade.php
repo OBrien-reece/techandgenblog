@@ -21,8 +21,21 @@
         </div>
     </div>
 
-    {{--Component of the lower section of the page--}}
-    <x-article.article-blog-lower-section :articles="$articles" />
+    <div class="row">
+        <div class="col-md-9 m-auto">
+
+            <div class="mt-4">
+                <span style="font-family: 'Poppins', sans-serif; font-size:1.4vw;">
+                    The Latest
+                </span>
+            </div>
+            <br>
+                {{--Component of the lower section of the page--}}
+            @foreach($articles as $article)
+                <x-article.article-blog-lower-section :article="$article" />
+            @endforeach
+        </div>
+    </div>
 
 </div>
 
