@@ -15,13 +15,19 @@ class WriterRequestController extends Controller
            'writers_about' => 'required|max:350'
         ]);
 
-        $writer->about = request('writers_about');
-        $writer->save();
+        /*Check if the about is NULL so as to prevent users from submitting a request twice*/
+        if ($writer->about == NULL) {
+            $writer->about = request('writers_about');
+            $writer->save();
 
-        $admin = User::admins()->get();
-        Notification::send($admin, new WriterRequest($writer));
-        $status = 'pending';
+            $admin = User::admins()->get();
+            Notification::send($admin, new WriterRequest($writer));
 
-        return back()->with('message', 'Your request has been submitted', compact('status'));
+            return back()->with('message', 'Your request has been submitted');
+        }
+
+        /*Throw an error if the user has an about (meaning that they are submitting a request twice)*/
+        return back()->with('error', 'You already submitted a request. Please await verification');
+
     }
 }

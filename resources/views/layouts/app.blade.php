@@ -118,6 +118,20 @@
         </script>
     @endif
 
+    @if(Session::has('error'))
+        <script>
+            toastr.options = {
+                'progressBar' : true,
+                "showMethod": "fadeIn",
+                "positionClass": "toast-bottom-right",
+                "hideMethod": "fadeOut",
+                "closeButton": true,
+                "newestOnTop": false,
+            }
+            toastr.error("{{ Session::get('error') }}");
+        </script>
+    @endif
+
 @stack('scripts')
 
 {{--Become a writer modal logic start--}}
