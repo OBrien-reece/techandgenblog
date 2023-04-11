@@ -61,14 +61,15 @@
                         @unlessrole('revoked_writer|admin')
                         <li class="nav-item">
                             <small>
-                                <a class="nav-link" href="/writer/{{ Auth()->user()->name }}/request">{{ __('Become a writer') }}</a>
+                                <a
+                                    class="nav-link"
+                                    href="#Modal">{{ __('Become a writer') }}</a>
                             </small>
                         </li>
                         @else
                         @endunlessrole
 
 
-                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -117,7 +118,59 @@
         </script>
     @endif
 
+    @if(Session::has('error'))
+        <script>
+            toastr.options = {
+                'progressBar' : true,
+                "showMethod": "fadeIn",
+                "positionClass": "toast-bottom-right",
+                "hideMethod": "fadeOut",
+                "closeButton": true,
+                "newestOnTop": false,
+            }
+            toastr.error("{{ Session::get('error') }}");
+        </script>
+    @endif
+
 @stack('scripts')
+
+{{--Become a writer modal logic start--}}
+
+    @if(Auth()->user())
+        <!-- Modal -->
+        <div id="Modal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Want to become a writer?</h5>
+                        {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>--}}
+                    </div>
+
+                    <form action="/writer/{{ Auth()->user()->name }}/request" method="POST" class="mt-1">
+                        @csrf
+
+                        <div class="modal-body">
+                            <span>Tell us something about yourself...</span>
+                            <div class="form-group">
+                                <textarea required maxlength="300" class="form-control" name="writers_about" id="" cols="30" rows="6"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    @endif
+
+{{--Become a writer modal logic ends--}}
+
 </body>
 
 </html>

@@ -6,16 +6,17 @@
 
 <div class="container">
 
+    {{--Component to show the webpage header--}}
     <x-webpage.header />
     <div class="col-md-9 m-auto">
         <div class="row">
 
             <div class="col-md-8">
-            {{--Featured Article component Left side of the page--}}
+            {{--Featured Article component Top Left side of the page--}}
             <x-article.featured-article :featured_article="$featured_article"/>
             </div>
 
-            {{--Featured categry latest articles Right Side of the bed--}}
+            {{--Featured categry latest articles Top Right Side of the bed--}}
             <x-article.featured-article-categories :categories="$categories" />
 
         </div>
@@ -42,5 +43,6 @@
     </div>
 
 </div>
+
 
 @endsection
