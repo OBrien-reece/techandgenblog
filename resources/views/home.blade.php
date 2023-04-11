@@ -30,8 +30,12 @@
                 </span>
             </div>
             <br>
-                {{--Component of the lower section of the page--}}
+
+            {{--Component of the lower section of the page--}}
             @foreach($articles as $article)
+                @if($loop->iteration % 5 == 0)
+                    <h1>Advertisement goes here</h1>
+                @endif
                 <x-article.article-blog-lower-section :article="$article" />
             @endforeach
         </div>
