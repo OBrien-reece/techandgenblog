@@ -57,16 +57,11 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
-                                <small>
-                                    <a href="#Modal">Open modal</a>
-                                </small>
-                            </li>
 
                         @unlessrole('revoked_writer|admin')
                         <li class="nav-item">
                             <small>
-                                <a class="nav-link" href="/writer/{{ Auth()->user()->name }}/request">{{ __('Become a writer') }}</a>
+                                <a class="nav-link" href="#Modal">{{ __('Become a writer') }}</a>
                             </small>
                         </li>
                         @else
