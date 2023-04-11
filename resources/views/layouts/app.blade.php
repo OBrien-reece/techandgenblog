@@ -61,7 +61,9 @@
                         @unlessrole('revoked_writer|admin')
                         <li class="nav-item">
                             <small>
-                                <a class="nav-link" href="#Modal">{{ __('Become a writer') }}</a>
+                                <a
+                                    class="nav-link"
+                                    href="#Modal">{{ __('Become a writer') }}</a>
                             </small>
                         </li>
                         @else
@@ -117,33 +119,44 @@
     @endif
 
 @stack('scripts')
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <!-- Trigger the modal with a button -->
-    <a href="#Modal" class="btn btn-info btn-lg">Open modal</a>
-    <!-- Modal -->
-    <div id="Modal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+{{--Become a writer modal logic start--}}
+
+    @if(Auth()->user())
+        <!-- Modal -->
+        <div id="Modal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Want to become a writer?</h5>
+                        {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>--}}
+                    </div>
+
+                    <form action="/writer/{{ Auth()->user()->name }}/request" method="POST" class="mt-1">
+                        @csrf
+
+                        <div class="modal-body">
+                            <span>Tell us something about yourself...</span>
+                            <div class="form-group">
+                                <textarea required maxlength="300" class="form-control" name="writers_about" id="" cols="30" rows="6"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+
+{{--Become a writer modal logic ends--}}
+
 </body>
 
 </html>

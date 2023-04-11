@@ -26,7 +26,7 @@ Route::group(['middleware' => 'can:admin', 'prefix' => 'admin', 'as' => 'admin.'
    Route::get('notification/{notification}', [NotificationController::class, 'delete'])->name('notification.delete');
 });
 
-Route::get('/writer/{writer:name}/request', [WriterRequestController::class, 'writer_request'])->middleware('auth');
+Route::post('/writer/{writer:name}/request', [WriterRequestController::class, 'writer_request'])->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['as' => 'articles.'], function () {
