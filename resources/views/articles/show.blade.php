@@ -21,7 +21,7 @@
                     <span style="float: right"><strong>{{ date('F jS Y', strtotime($article->created_at)) }}</strong></span>
                 </div>
 
-                <img src="{{ asset('img/card.jpg') }}" alt="" width="100%" style="border-radius: 4px">
+                <img src="https://picsum.photos/seed/{{$article->id}}/270/150" alt="" width="100%" style="border-radius: 4px">
 
                 <div class="mt-4">
                     {!! \Stevebauman\Purify\Facades\Purify::clean($article->body) !!}

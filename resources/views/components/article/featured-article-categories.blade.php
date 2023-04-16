@@ -4,7 +4,7 @@
     @if(!empty($categories))
         @foreach($categories as $category)
            <div class="featured_category_article article {{ $loop->iteration < 1 ? '' : 'border-bottom' }}">
-               <a href="#" style="text-decoration: none">
+               <a href="/category/{{ $category->slug }}" style="text-decoration: none">
                     <span style="color: green">
                         <strong>{{ ucwords($category->name) }}</strong>
                     </span>

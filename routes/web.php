@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\{AdminController, NotificationController};
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WriterRequestController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,4 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth', 'as' => 'article.'] ,function () {
     Route::get('/article/{article:slug}', [ArticlesController::class, 'show'])->name('show');
+});
+
+Route::group(['middleware' => 'auth', 'as' => 'category'], function () {
+   Route::get("/category/{category:slug}", [CategoryController::class, 'show'])->name('show');
 });

@@ -2,8 +2,17 @@
 
             <div class="row border-bottom border-top article" style="padding: 10px 0 10px 0">
                 <div class="col-md-4">
-                    <span style="color: green">{{ $article->category->name }}</span><br>
-                    <span style="font-family: 'Poppins', sans-serif; font-size:1.4vw;">{{ $article->title }}</span>
+                    <a href="/category/{{ $article->category->slug }}" style="text-decoration: none">
+                        <span style="color: green">
+                            <strong>{{ ucwords($article->category->name) }}</strong>
+                        </span>
+                    </a>
+
+                    <br>
+
+                    <a href="/article/{{ $article->slug }}" style="font-family: 'Poppins', sans-serif; font-size:1.4vw;color: black;text-decoration: none">
+                        <span>{{ $article->title }}</span>
+                    </a>
 
                     <br>
 
@@ -17,10 +26,14 @@
                 </div>
 
                 <div class="col-md-4">
-                    <span style="color: gray">{!! Str::of(\Stevebauman\Purify\Facades\Purify::clean($article->body))->limit(200) !!}</span>
+                    <a href="/article/{{ $article->slug }}" style="color: gray;text-decoration: none">
+                        <span>{!! Str::of(\Stevebauman\Purify\Facades\Purify::clean($article->body))->limit(200) !!}</span>
+                    </a>
                 </div>
 
                 <div class="col-md-4">
-                    <img src="https://picsum.photos/seed/{{$article->id}}/270/150" alt="">
+                    <a href="/article/{{ $article->slug }}">
+                        <img src="https://picsum.photos/seed/{{$article->id}}/270/150" alt="">
+                    </a>
                 </div>
             </div>
