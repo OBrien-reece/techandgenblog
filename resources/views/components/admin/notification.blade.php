@@ -17,10 +17,12 @@
 
 <div class="mt-3 row">
     <div class="col-md-3 mb-2">
-        <button class="btn btn-success" type="submit">Accept Request</button>
+        <form action="accept/{{ $notification->id }}" method="GET">
+            <button class="btn btn-success" type="submit">Accept Request</button>
+        </form>
     </div>
     <div class="col-md-3">
-        <form action="notification/{{ $notification->id }}" method="GET">
+        <form action="reject/{{ $notification->id }}" method="GET">
             <button class="btn btn-danger" type="submit">Reject Request</button>
         </form>
     </div>

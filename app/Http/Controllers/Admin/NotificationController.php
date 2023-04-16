@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\AcceptWriterRequest;
 use App\Notifications\RevokeWriterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -21,7 +22,7 @@ class NotificationController extends Controller
         ]);
     }
 
-    public function delete($id){
+    public function revoke_request($id){
 
         if ($id) {
             DB::transaction(function () use($id) {
@@ -47,6 +48,36 @@ class NotificationController extends Controller
 
             //Redirect back with a message
             return back()->with('message', "Successfully revoked writer's request");
+
+        }
+    }
+
+    public function accept_request($id){
+
+        if ($id) {
+            DB::transaction(function () use($id) {
+                //Find the notification being targeted
+                $notification = auth()->user()->notifications->where('id', $id)->first();
+
+                //Find the name of the user that sent the notification
+                $name_of_user = $notification->data['name'];
+
+                //Find the user's data through the User model
+                $user = User::where('name', $name_of_user)->first();
+
+                //Give the user a writer role
+                $user->assignRole('writer');
+
+                //Send the user a notification message
+                Notification::send($user, new AcceptWriterRequest());
+
+                //Delete the notification
+                auth()->user()->notifications()->where('id', $id)->delete();
+
+            });
+
+            //Redirect back with a message
+            return back()->with('message', "The writer has been notified of his new status");
 
         }
     }

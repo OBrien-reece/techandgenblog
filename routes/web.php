@@ -23,7 +23,8 @@ Route::group(['middleware' => 'can:admin', 'prefix' => 'admin', 'as' => 'admin.'
    Route::get('dashboard', [AdminController::class, 'index'])->name('index');
    Route::get('users', [AdminController::class, 'show'])->name('show');
    Route::get('messages', [NotificationController::class, 'index'])->name('messages');
-   Route::get('notification/{notification}', [NotificationController::class, 'delete'])->name('notification.delete');
+   Route::get('reject/{notification}', [NotificationController::class, 'revoke_request'])->name('notification.reject');
+    Route::get('accept/{notification}', [NotificationController::class, 'accept_request'])->name('notification.accept');
 });
 
 Route::post('/writer/{writer:name}/request', [WriterRequestController::class, 'writer_request'])->middleware('auth');
