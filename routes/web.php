@@ -29,12 +29,14 @@ Route::group(['middleware' => 'can:admin', 'prefix' => 'admin', 'as' => 'admin.'
 Route::post('/writer/{writer:name}/request', [WriterRequestController::class, 'writer_request'])->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
+
     Route::group(['as' => 'articles.'], function () {
         Route::get('/home', [ArticlesController::class, 'index'])->name('index');
         Route::get('/', [ArticlesController::class, 'index']);
     });
+
     Route::group(['as' => 'author.', 'prefix' => 'author'], function () {
-       Route::get('{author}', [AuthorController::class, 'show'])->name('show');
+       Route::get('{author:slug}', [AuthorController::class, 'show'])->name('show');
     });
 });
 
