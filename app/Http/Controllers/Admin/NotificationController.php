@@ -46,7 +46,7 @@ class NotificationController extends Controller
             });
 
             //Redirect back with a message
-            return back()->with('message', 'The notification has been deleted');
+            return back()->with('message', "Successfully revoked writer's request");
 
         }
     }

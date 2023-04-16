@@ -1,16 +1,28 @@
 @props(['notification'])
 
-<a href="" style="color: purple" >
-    {{--<div class="circle">
-        <p class="circle-inner">{{ $initials = preg_filter('/[^A-Z]/', '', $notification->data['name']) }}</p>
-    </div>--}}
-    <span style="font-family: 'Times New Roman'">{{ $notification->data['name'] }} is requesting writer priviledges</span>
-    <small style="font-size: 12px;float: right">
-        [{{ ($notification->created_at)->diffForHumans() }}]
+<span style="font-family: 'Times New Roman';color: purple">{{ $notification->data['name'] }} is requesting writer priviledges</span>
+<small style="font-size: 12px;float: right">
+    [{{ ($notification->created_at)->diffForHumans() }}]
+</small>
+
+<br>
+
+<div style="padding-left: 28px;color: black">
+    <small>
+        <u><span>#About</span></u>
+        <br>
+        <span style="font-family: 'Times New Roman'">{{ $notification->data['about'] }} is requesting writer priviledges</span>
     </small>
-</a>
-<span style="float: right;padding-right: 50px">
-    <i style="color: green" class="fas fa-circle-check"></i>
-    <a href="notification/{{ $notification->id }}"><i style="color: red" class="fa fa-circle-xmark"></i></a>
-</span>
+</div>
+
+<div class="mt-3 row">
+    <div class="col-md-3 mb-2">
+        <button class="btn btn-success" type="submit">Accept Request</button>
+    </div>
+    <div class="col-md-3">
+        <form action="notification/{{ $notification->id }}" method="GET">
+            <button class="btn btn-danger" type="submit">Reject Request</button>
+        </form>
+    </div>
+</div>
 <hr>

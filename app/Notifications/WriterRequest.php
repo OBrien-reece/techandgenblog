@@ -49,6 +49,7 @@ class WriterRequest extends Notification
     {
         return [
             'name' => $this->writer->name,
+            'about' => $this->writer->about
         ];
     }
 }
