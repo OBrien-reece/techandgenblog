@@ -23,4 +23,10 @@ class ArticlesController extends Controller
             'articles' => $articles
         ]);
     }
+
+    public function show(Articles $article) {
+        return view('articles.show', [
+            'article' => $article,
+        ]);
+    }
 }

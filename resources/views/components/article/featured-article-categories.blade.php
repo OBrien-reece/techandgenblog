@@ -13,7 +13,7 @@
                <br>
 
                <span style="font-family: 'Poppins', sans-serif; font-size:1vw;" class="blog_title">
-                    <a href="#" style="text-decoration: none;color: black">
+                    <a href="/article/{{ $category->latestArticle->slug }}" style="text-decoration: none;color: black">
                         {{ $category->latestArticle->title }}
                     </a>
                     <br>

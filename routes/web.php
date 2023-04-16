@@ -22,8 +22,11 @@ Auth::routes();
 Route::group(['middleware' => 'can:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
    Route::get('dashboard', [AdminController::class, 'index'])->name('index');
    Route::get('users', [AdminController::class, 'show'])->name('show');
-   Route::get('messages', [NotificationController::class, 'index'])->name('messages');
-   Route::get('reject/{notification}', [NotificationController::class, 'revoke_request'])->name('notification.reject');
+});
+
+Route::group(['middleware' => 'can:admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('messages', [NotificationController::class, 'index'])->name('messages');
+    Route::get('reject/{notification}', [NotificationController::class, 'revoke_request'])->name('notification.reject');
     Route::get('accept/{notification}', [NotificationController::class, 'accept_request'])->name('notification.accept');
 });
 
@@ -41,3 +44,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
+Route::group(['middleware' => 'auth', 'as' => 'article.'] ,function () {
+    Route::get('/article/{article:slug}', [ArticlesController::class, 'show'])->name('show');
+});

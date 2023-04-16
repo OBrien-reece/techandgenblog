@@ -1,3 +1,3 @@
 @props(['title'])
 
-@section('title', config('app.name') . " | " . $title)
+@section('title', $title . " | " . config('app.name'))
