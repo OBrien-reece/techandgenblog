@@ -16,17 +16,10 @@
                     {{ $article->title }}
                 </span>
 
-                <div class="col-md-9 col-xm-9 col-sm-9 col-lg-9 mt-4 mb-4">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <strong>{{ $article->author->name }}</strong>
-                        </div>
-                        <div class="col-md-6">
-                            <strong>{{ date('F jS Y', strtotime($article->created_at)) }}</strong>
-                        </div>
-                    </div>
+                <div class="mt-3 mb-3">
+                    <span><strong>{{ $article->author->name }}</strong></span>
+                    <span style="float: right"><strong>{{ date('F jS Y', strtotime($article->created_at)) }}</strong></span>
                 </div>
-
 
                 <img src="{{ asset('img/card.jpg') }}" alt="" width="100%" style="border-radius: 4px">
 
