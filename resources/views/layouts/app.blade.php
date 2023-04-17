@@ -73,9 +73,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Want to become a writer?</h5>
-                        {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>--}}
                     </div>
 
                     <form action="/writer/{{ Auth()->user()->name }}/request" method="POST" class="mt-1">

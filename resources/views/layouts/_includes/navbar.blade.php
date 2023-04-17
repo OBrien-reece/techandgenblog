@@ -47,7 +47,7 @@
                                 <a
                                     style="color: purple"
                                     class="nav-link"
-                                    href="#Modal">{{ __('Begin Writing') }}</a>
+                                    href="#">{{ __('Begin Writing') }}</a>
                             </small>
                         </li>
                     @endrole
