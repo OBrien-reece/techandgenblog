@@ -47,7 +47,7 @@
                                 <a
                                     style="color: purple"
                                     class="nav-link"
-                                    href="#">{{ __('Begin Writing') }}</a>
+                                    href="{{ route('article.create') }}">{{ __('Begin Writing') }}</a>
                             </small>
                         </li>
                     @endrole

@@ -29,4 +29,12 @@ class ArticlesController extends Controller
             'article' => $article,
         ]);
     }
+
+    public function create() {
+        $categories = Category::all();
+        return view('articles.create', [
+            'categories' => $categories
+        ]);
+    }
+
 }
