@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 m-auto">
-                <form action="" enctype="multipart/form-data" method="POST">
+                <form action="{{ route('article.store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     <div class="text-center">
                         <h3>Create article</h3>
@@ -29,7 +29,7 @@
 
                     <div class="form-group">
                         <label for="title">Title for your article</label>
-                        <input type="text" class="form-control" placeholder="insert the title for yout article">
+                        <input name="title" type="text" class="form-control" placeholder="insert the title for yout article">
                     </div>
 
                     <br>
@@ -48,11 +48,11 @@
                         <div class="row">
                             <div class="col">
                                 <label for="thumbnail">Article Thumbnail</label>
-                                <input type="file" class="form-control">
+                                <input name="thumbnail" type="file" class="form-control">
                             </div>
                             <div class="col">
                                 <label for="thumbnail">Article Banner Image</label>
-                                <input type="file" class="form-control">
+                                <input name="banner" type="file" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                             <li><label for="article_body">Type out the article</label></li>
                             <li><label for="article_body">You can preview the article at the bottom as you type before submission</label></li>
                         </ul>
-                        <textarea class="form-control" onkeyup="AutoGrowTextArea(this)" style="overflow:hidden">  </textarea>
+                        <textarea name=""article_body class="form-control" onkeyup="AutoGrowTextArea(this)" style="overflow:hidden">  </textarea>
                     </div>
 
                     <button type="submit" style="float: right" class="btn btn-success">Submit article</button>

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreArticleRequest;
 use App\Models\Articles;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ArticlesController extends Controller
 {
@@ -35,6 +38,24 @@ class ArticlesController extends Controller
         return view('articles.create', [
             'categories' => $categories
         ]);
+    }
+
+    public function store(StoreArticleRequest $request) {
+
+        $request->validated();
+
+        $article = new Articles();
+        $article->title = $request->input('title');
+        $article->exerpt = $request->input('exerpt');
+        $article->body = $request->input('article_body');
+        $article->thumbnail = $request->input('thumbnail');
+        $article->banner = $request->input('banner');
+        $article->category_id = $request->input('category_id');
+        $article->slug = Str::slug($request->input('title'));
+        $article->user_id = Auth::user()->id;
+
+        $article->save();
+
     }
 
 }
