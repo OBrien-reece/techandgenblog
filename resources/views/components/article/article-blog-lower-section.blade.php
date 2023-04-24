@@ -33,7 +33,7 @@
 
                 <div class="col-md-4">
                     <a href="/article/{{ $article->slug }}">
-                        <img src="https://picsum.photos/seed/{{$article->id}}/270/150" alt="">
+                        <img src="{{ asset('article_thumbnails' . $article->thumbnail_image) }}" alt="Article Image Thumbnail">
                     </a>
                 </div>
             </div>

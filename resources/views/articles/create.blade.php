@@ -64,7 +64,7 @@
                             <li><label for="article_body">Type out the article</label></li>
                             <li><label for="article_body">You can preview the article at the bottom as you type before submission</label></li>
                         </ul>
-                        <textarea name=""article_body class="form-control" onkeyup="AutoGrowTextArea(this)" style="overflow:hidden">  </textarea>
+                        <textarea name="article_body" class="form-control" onkeyup="AutoGrowTextArea(this)" style="overflow:hidden">  </textarea>
                     </div>
 
                     <button type="submit" style="float: right" class="btn btn-success">Submit article</button>
