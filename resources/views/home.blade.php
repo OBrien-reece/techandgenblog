@@ -9,6 +9,7 @@
     {{--Component to show the webpage header--}}
     <x-webpage.header />
     <div class="col-md-9 m-auto">
+
         <div class="row">
 
             <div class="col-md-8">
