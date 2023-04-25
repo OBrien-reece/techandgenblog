@@ -35,17 +35,16 @@ Route::post('/writer/{writer:name}/request', [WriterRequestController::class, 'w
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::group(['as' => 'articles.'], function () {
-        Route::get('/home', [ArticlesController::class, 'index'])->name('index');
-        Route::get('/', [ArticlesController::class, 'index']);
-    });
-
     Route::group(['as' => 'author.', 'prefix' => 'author'], function () {
        Route::get('{author:slug}', [AuthorController::class, 'show'])->name('show');
     });
 });
 
 Route::group(['middleware' => 'auth', 'as' => 'article.'] ,function () {
+    Route::get('/home', [ArticlesController::class, 'index'])->name('index');
+    Route::get('/', [ArticlesController::class, 'index']);
+    Route::get('/article/create', [ArticlesController::class, 'create'])->name('create');
+    Route::post('/article', [ArticlesController::class, 'store'])->name('store');
     Route::get('/article/{article:slug}', [ArticlesController::class, 'show'])->name('show');
 });
 
