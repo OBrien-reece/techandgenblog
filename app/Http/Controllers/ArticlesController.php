@@ -58,7 +58,7 @@ class ArticlesController extends Controller
         if ($request->hasFile('thumbnail')) {
             $filename = 'Thumbnails' . '_' . Str::of($request->input('title'))->snake() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
             Image::make($request->file('thumbnail'))
-                ->resize(300, 200)
+                ->resize(620, 415)
                 ->save(public_path('article_thumbnails/') .$filename);
             $article->thumbnail_image = $filename;
         }

@@ -33,7 +33,7 @@
 
                 <div class="col-md-4">
                     <a href="/article/{{ $article->slug }}">
-                        <img style="border-radius: 10px" width="100%" height="140px" src="{{ asset('article_thumbnails/' . $article->thumbnail_image) }}" alt="Article Image Thumbnail">
+                        <img style="border-radius: 5px" width="100%" height="140px" src="{{ asset('article_thumbnails/' . $article->thumbnail_image) }}" alt="Article Image Thumbnail">
                     </a>
                 </div>
             </div>

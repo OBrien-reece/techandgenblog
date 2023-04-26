@@ -23,10 +23,10 @@ class StoreArticleRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'exerpt' => 'required',
+            'exerpt' => 'required', 'max:100',
             'thumbnail' => 'required',
             'banner' => 'required',
-            'article_body' => 'required',
+            'article_body' => 'required', 'min:200',
         ];
     }
 
@@ -36,6 +36,7 @@ class StoreArticleRequest extends FormRequest
             'category_id.required' => 'Please fill this field',
             'title.required' => 'Please fill this field',
             'exerpt.required' => 'Please fill this field',
+            'exerpt.max' => 'A maximum of 100 words is needed',
             'thumbnail.required' => 'Please fill this field',
             'banner.required' => 'Please fill this field',
             'article_body.required' => 'Please fill this field',
