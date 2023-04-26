@@ -62,7 +62,7 @@
         </script>
     @endif
 
-@stack('scripts')
+    @stack('scripts')
 
 {{--Become a writer modal logic start--}}
 
