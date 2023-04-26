@@ -94,13 +94,16 @@
             placeholder: 'Hello stand alone ui',
             tabsize: 2,
             height: 120,
+            fontNames: [ 'Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento', 'Times New Roman'],
+            fontNamesIgnoreCheck: [ 'Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Sacramento', 'Times New Roman'],
             toolbar: [
                 ['style', ['style']],
+                ['fontname', ['fontname']],
                 ['font', ['bold', 'underline', 'clear']],
                 ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
+                ['insert', ['link']],
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });

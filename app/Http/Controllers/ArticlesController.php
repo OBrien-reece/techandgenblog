@@ -72,7 +72,7 @@ class ArticlesController extends Controller
 
         $article->save();
 
-        return redirect('/');
+        return redirect()->route('article.show', $article->slug);
 
 
     }
