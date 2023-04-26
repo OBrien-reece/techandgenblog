@@ -13,7 +13,9 @@
 
             <div class="col-md-8">
             {{--Featured Article component Top Left side of the page--}}
-            <x-article.featured-article :featured_article="$featured_article"/>
+                <a href="/article/{{ $featured_article->slug }}" style="text-decoration: none;color: black">
+                    <x-article.featured-article :featured_article="$featured_article"/>
+                </a>
             </div>
 
             {{--Featured categry latest articles Top Right Side of the bed--}}
