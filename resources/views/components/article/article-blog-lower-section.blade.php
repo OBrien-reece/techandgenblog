@@ -22,7 +22,11 @@
 
                     <br>
 
-                    <span class="article_created_at">{{ date('F jS Y \a\t h:i A', strtotime($article->created_at)) }}</span>
+                    <span style="font-weight: bold;" class="article_created_at">
+                        <small>
+                            {{ date('F jS Y \a\t h:i A', strtotime($article->created_at)) }}
+                        </small>
+                    </span>
                 </div>
 
                 <div class="col-md-4">
