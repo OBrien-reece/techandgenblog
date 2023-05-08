@@ -43,6 +43,10 @@
                     <div class="form-group">
                         <label for="title">Title for your article</label>
                         <input name="title" type="text" class="form-control" placeholder="insert the title for yout article">
+
+                        @if($errors->has('title'))
+                        <div class='danger'>{{ $errors->first('title') }}</div
+                        @endif
                     </div>
 
                     <br>
