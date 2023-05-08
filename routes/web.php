@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth', 'as' => 'article.'] ,function () {
     Route::get('/article/{article:slug}', [ArticlesController::class, 'show'])->name('show');
 
     Route::group(['middleware' => ['role:writer']], function () {
-        Route::get('/article/create', [ArticlesController::class, 'create'])->name('create');
+        Route::get('/articles/create', [ArticlesController::class, 'create'])->name('create');
     });
 });
 
