@@ -21,7 +21,7 @@ class ArticlesFactory extends Factory
         return [
             'title' => $this->faker->text(maxNbChars:100),
             'excerpt' => $this->faker->paragraph(),
-            'body' => collect($this->faker->paragraphs(4))->map(fn($item) => "<p>{$item}</p>")->implode(''),
+            'body' => collect($this->faker->paragraphs(14))->map(fn($item) => "<p>{$item}</p>")->implode(''),
             'category_id' => $category->random(),
             'user_id' => $users->random(),
             'slug' => $this->faker->slug()
